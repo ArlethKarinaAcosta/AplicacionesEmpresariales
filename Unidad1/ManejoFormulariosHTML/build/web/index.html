@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Formulario Registro de Datos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="recursos/funciones.js"></script>
+        <link href="recursos/style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <h1>Formulario Registro de Datos</h1>
+        <form name="form1" action="/ManejoFormulariosHTML/Servlet" method="POST" onsubmit="return validarFormulario(this)">
+        <div>
+            <table>
+                <tr>
+                    <td id="hola">
+                        <label>Usuario: (*)</label>
+                        
+                    </td>
+                    <td>
+                        <input type="text" placeholder="Escribir usuario" name="usuario">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="hola">
+                        <label>Password: (*)</label>
+                    </td>
+                    <td>
+                        <input type="password" placeholder="*****" name="password">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="hola">
+                        <label>Tecnologias de Interes: (*)</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="tecnologia" value="java">Java
+                        <input type="checkbox" name="tecnologia" value=".Net">.Net
+                        <input type="checkbox" name="tecnologia" value="Php">Php
+                    </td>
+                </tr>
+                <tr>
+                    <td id="hola">
+                        <label>Genero: (*)</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="genero" value="M" id="holita">Hombre
+                        <input type="radio" name="genero" value="F" id="holita1" checked>Mujer
+                    </td>
+                </tr>
+                <tr>
+                    <td id="hola">
+                        <label>Ocupacion: (*)</label>
+                    </td>
+                    <td>
+                        <select name="ocupacion">
+                            <option value="seleccionar" name="seleccionar" id="holita4">Seleccionar...</option>
+                            <option value="estudiante" name="estudiante" id="holita2">Estudiante</option>
+                            <option value="trabajador" name="trabajador" id="holita3">Trabajador</option>
+                            
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="hola">
+                        <label >Musica Favorita:
+                    </td>
+                    <td>
+                        <select name="musica" multiple>
+                            <option value="rock" name="rock">Rock</option>
+                            <option value="pop" name="pop">Pop</option>
+                            <option value="salsa"  name="salsa">Salsa</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="hola">
+                        <label>Comentarios:</label>
+                    </td>
+                    <td>
+                        <textarea name="comentarios" rows="4" cols="30" placeholder="Escribir un texto">
+                            
+                        </textarea>
+                    </td>
+                       
+                </tr>
+                <tr>
+                    <td align="center">
+                        <input type="submit" value="Limpiar" name="limpiar" align="center">
+                            
+                    </td>
+                    <td align="center">
+                        <input type="submit" value="Enviar" name="enviar" align="center">
+                    </td>
+                       
+                </tr>
+            </table>
+            
+            
+        </div>
+            </form>
+    </body>
+</html>
