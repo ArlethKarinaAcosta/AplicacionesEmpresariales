@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="jquery-3.4.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            $('frmProduct').validate({
+                rules:
+                        {
+                            productname:{
+                                minlength:1,
+                                maxlength:50,
+                                requerid:true
+                            },
+                            brand:{
+                                minlength:1,
+                                maxlength:50,
+                                requerid:true
+                            },
+                            currency:{
+                                minlength:1,
+                                maxlength:50,
+                                requerid:true
+                            },
+                            cbPC:{
+                                minlength:1,
+                                maxlength:50,
+                                requerid:true
+                            },
+                            purchprice:{
+                                minlength:1,
+                                maxlength:50,
+                                requerid:true,
+                                number: true
+                            },
+                            reorderpoint:{
+                                minlength:1,
+                                maxlength:50,
+                                requerid:true,
+                                number: true
+                            },
+                            salepricemay:{
+                                minlength:1,
+                                maxlength:50,
+                                requerid:true,
+                                number: true
+                            },
+                            salepricemin:{
+                                minlength:1,
+                                maxlength:50,
+                                requerid:true,
+                                number: true
+                            },
+                            stock:{
+                                minlength:1,
+                                maxlength:50,
+                                requerid:true,
+                                number: true
+                            },
+                            code:{
+                                minlength:1,
+                                maxlength:50,
+                                requerid:true
+                            },
+                            file:{
+                                requerid: true,
+                                extension: "jpg|png"
+                            }
+                        },
+                        messages:{
+                            productname:{
+                                minlength:"Introduzca al menos 1 caracter",
+                                maxlength:"Introduzca maximo 50 caracteres",
+                                requerid:"Se requiere el nombre del producto"
+                            },
+                            brand:{
+                                minlength:"Introduzca al menos 1 caracter",
+                                maxlength:"Introduzca maximo 50 caracteres",
+                                requerid:"Se requiere el nombre de la marca"
+                            },
+                            currency:{
+                                minlength:"Introduzca al menos 1 caracter",
+                                maxlength:"Introduzca maximo 50 caracteres",
+                                requerid:"Se requiere la moneda"
+                            },
+                            cbPC:{
+                                minlength:"Introduzca al menos 1 caracter",
+                                maxlength:"Introduzca maximo 50 caracteres",
+                                requerid:"Se requiere el nombre de la categoria"
+                            },
+                            purchprice:{
+                                minlength:"Introduzca al menos 1 caracter",
+                                maxlength:"Introduzca maximo 50 caracteres",
+                                requerid:"Se requiere el precio de compra"
+                            },
+                            reorderpoint:{
+                                minlength:"Introduzca al menos 1 caracter",
+                                maxlength:"Introduzca maximo 50 caracteres",
+                                requerid:"Se requiere el punto de reorden"
+                            },
+                            salepricemay:{
+                                minlength:"Introduzca al menos 1 caracter",
+                                maxlength:"Introduzca maximo 50 caracteres",
+                                requerid:"Se requiere el precio maximo"
+                            },
+                            salepricemin:{
+                                minlength:"Introduzca al menos 1 caracter",
+                                maxlength:"Introduzca maximo 50 caracteres",
+                                requerid:"Se requiere el precio minimo"
+                            },
+                            stock:{
+                                minlength:"Introduzca al menos 1 caracter",
+                                maxlength:"Introduzca maximo 50 caracteres",
+                                requerid:"Se requiere la existencia"
+                            },
+                            code:{
+                                minlength:"Introduzca al menos 1 caracter",
+                                maxlength:"Introduzca maximo 50 caracteres",
+                                requerid:"Se requiere el codigo"
+                            },
+                            file:{
+                                required:"Imagen requerido",
+                                extension: "El archivo debe ser png o jpg"
+                            }
+                        },
+                            highlight: function (element) {
+                                $(element).closest('.form-group').addClass('has-error');
+                            },
+                            unhighlight: function (element) {
+                                $(element).closest('.form-group').removeClass('has-error');
+                            },
+                            errorElement: 'span',
+                            errorClass: 'help-block',
+                            errorPlacement: function (error, element) {
+                                if (element.parent('.input-group'.length)) {
+                                    error.insertAfter(element.parent());
+                                } else {
+                                    error.insertAfter(element)
+                                }
+                            },
+                            submitHandler: function (form) {
+                                console.log('Formulario válido');
+                                nuevoRol();
+                                return false;
+                            }
+            });
+        </script>
+    </head>
+    <body>
+        
+        <!--Aqui inicia el form-->
+        <div class="row">
+            <h2>Productos OnLine</h2>
+            <br>
+            <div class="col col-lg-12 col-md-12">
+                <form id="frmProduct" method="POST" enctype="multipart/form-data">
+                    <div class="col col-lg-6 col-md-3">
+                        <div class="form-group">
+                            <label class="control-label" for="productname">
+                                Nombre del producto
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-credit-card"></i>
+                                </span>
+                                <input class="form-control" id="productname" name="productname"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-lg-6 col-md-3">
+                        <div class="form-group">
+                            <label class="control-label" for="brand">
+                                Marca
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-apple"></i>
+                                </span>
+                                <input class="form-control" id="brand" name="brand"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-lg-6 col-md-3">
+                        <div class="form-group">
+                            <label class="control-label" for="currency">
+                                Moneda
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-credit-card"></i>
+                                </span>
+                                <input class="form-control" id="currency" name="currency"/>
+                            </div>
+                        </div>
+                    </div>
+                   <div class="col col-lg-6 col-md-3">
+                        <div class="form-group">
+                            <label class="control-label" for="cbPC">
+                                Categoria
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-bell"></i>
+                                </span>
+                                <input class="form-control" id="cbPC" name="cbPC"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-lg-6 col-md-3">
+                        <div class="form-group">
+                            <label class="control-label" for="purchprice">
+                                Precio de compra
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon"
+                                      ><i class="glyphicon glyphicon-euro"></i>
+                                </span>
+                                <input class="form-control" id="purchprice" name="purchprice"/>
+                            </div>
+                        </div>
+                        </div>
+                    <div class="col col-lg-6 col-md-3">
+                        <div class="form-group">
+                            <label class="control-label" for="reorderpoint">
+                                Punto de reorden
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon"
+                                      ><i class="glyphicon glyphicon-arrow-down"></i>
+                                </span>
+                                <input class="form-control" id="reorderpoint" name="reorderpoint"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-lg-6 col-md-3">
+                        <div class="form-group">
+                            <label class="control-label" for="salepricemay">
+                                Precio de venta Máximo
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon"
+                                      ><i class="glyphicon glyphicon-euro"></i>
+                                </span>
+                                <input class="form-control" id="salepricemay" name="salepricemay"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-lg-6 col-md-3">
+                        <div class="form-group">
+                            <label class="control-label" for="salepricemin">
+                                Precio de venta Mínimo
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon"
+                                      ><i class="glyphicon glyphicon-euro"></i>
+                                </span>
+                                <input class="form-control" id="salepricemin" name="salepricemin"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-lg-6 col-md-3">
+                        <div class="form-group">
+                            <label class="control-label" for="stock">
+                                Existencia
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon"
+                                      ><i class="glyphicon glyphicon-alert"></i>
+                                </span>
+                                <input class="form-control" id="stock" name="stock"/>
+                                <a href="productos.html"></a>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="col col-lg-6 col-md-3">
+                        <div class="form-group">
+                            <label class="control-label" for="code">
+                                Código
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon"
+                                      ><i class="glyphicon glyphicon-barcode"></i>
+                                </span>
+                                <input class="form-control" id="code" name="code"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-lg-6 col-md-3">
+                <div class="form-group">
+                    <label class="control-label" for="image">Imágen</label>
+                    <input id="file" name="file" type="file"  />
+                </div>
+            </div>
+                    <div align="right">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="glyphicon glyphicon-save">&nbsp;Guardar</i>
+                        </button>
+                    </div>
+                    
+                </form>
+                
+            </div>
+            
+        </div>
+        
+        
+        
+        
+        <!--Aqui termina el form-->
+        
+        
+        
+        
+        <div class="row">
+            <table id="tbProducts">
+                <thead>
+                    <tr>
+                        <th>Clave</th>
+                        <th>Producto</th>
+                        <th>Marca</th>
+                        <th>Moneda</th>
+                        <th>Categoria</th>
+                        <th>Precio de compra</th>
+                        <th>Punto de reorden</th>
+                        <th>Precio de venta Maximo</th>
+                        <th>Precio de venta Minimo</th>
+                        <th>Exitencia</th>
+                        <th>Codigo</th>
+                        <th>Url</th>
+                        <th>Operaciones</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </body>
+</html>
